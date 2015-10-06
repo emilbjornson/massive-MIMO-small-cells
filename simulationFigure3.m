@@ -1,11 +1,11 @@
 %This Matlab script can be used to generate Figure 3 in the article:
 %
-%Emil Björnson, Marios Kountouris, Merouane Debbah, "Massive MIMO and
+%Emil BjÃ¶rnson, Marios Kountouris, Merouane Debbah, "Massive MIMO and
 %Small Cells: Improving Energy Efficiency by Optimal Soft-Cell
 %Coordination," Proceedings International Conference on Telecommunications
 %(ICT'13), Casablanca, Morocco, May 2013.
 %
-%This is version 1.3 (Last edited: 2014-03-21)
+%This is version 1.4 (Last edited: 2015-10-06)
 %
 %%The implementation utilizes and requires CVX: http://cvxr.com/
 %
@@ -65,7 +65,7 @@ NBScases = 20:10:100;
 
 %Propagation Parameters
 pentrationlossdB = 20; %Penetration loss (indoor users)
-shadowFadingBS = 10^(7/10); %Standard deviation of shadow fading for all users to the macro BS
+shadowFadingBS = 7; %Standard deviation (in dB) of shadow fading for all users to the macro BS
 
 
 
@@ -85,8 +85,8 @@ pentrationlossdB_incluster = 0; %Pentration loss for users in cluser (dB)
 pentrationlossdB_outcluster = 20; %Pentration loss for users not in cluser (dB)
 
 %Standard deviation of shadow fading for all users to the SCA
-shadowFadingSCA_incluster = 10^(7/10);
-shadowFadingSCA_outcluster = 10^(7/10);
+shadowFadingSCA_incluster = 7;
+shadowFadingSCA_outcluster = 7;
 
 
 
@@ -223,7 +223,7 @@ for iter = 1:nbrOfRealizations
         
         %Create the power constraints in vector using the notation from the
         %book "Optimal Resource Allocation in Coordinated Multi-Cell Systems"
-        %by Emil Björnson and Eduard Jorswieck.
+        %by Emil BjÃ¶rnson and Eduard Jorswieck.
         
         L = N; %Number of constraints (one per antenna)
 
